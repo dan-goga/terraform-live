@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 modules "webserver_cluster" {
-  source = "../../../modules/services/webserver-cluster"
+  source = "github.com/dan-goga/modules//webserver-cluster?ref=v0.0.1"
 
   cluster_name           = "webservers-prod"
   db_remote_state_bucket = "goga-bucket-for-terraform"
