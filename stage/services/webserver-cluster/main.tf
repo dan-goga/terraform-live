@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "webserver_cluster" {
-  source = "github.com/dan-goga/terraform-modules//services/webserver-cluster?ref=v0.0.2"
+  source = "../../../../terraform-modules/services/webserver-cluster"
 
   cluster_name           = "webservers-stage"
   db_remote_state_bucket = "goga-bucket-for-terraform"
@@ -11,6 +11,11 @@ module "webserver_cluster" {
   instance_type          = "t2.micro"
   min_size               = 2
   max_size               = 2
+
+  custom_tags = {
+    Owner      = "team-goga"
+    DeployedBy = "terraform"
+  }
 }
 
 resource "aws_security_group_rule" "allow_testing_inbound" {
