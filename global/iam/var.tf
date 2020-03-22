@@ -4,3 +4,7 @@ variable "user_names" {
   default     = ["neo", "morpheus", "trinity"]
 }
 
+variable "neo_full_access" {
+  description = "If true, neo gets full access to cloudwatch"
+  type        = bool
+}
